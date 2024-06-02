@@ -1,0 +1,29 @@
+<form *ngIf="addDetails"
+        autocomplete="off"
+        [formGroup]="addDetails"
+        class="form"
+        (ngSubmit)="onSubmit()"
+        novalidate
+        autocomplete="off">
+<div id="section1" class="form-section">
+    <label for="login">Login Access:
+        
+    <input formControlName= "login_access" type="checkbox" id="login" name="login">
+    </label>
+    <label for="tds">Apply TDS:
+        
+        <input formControlName= "apply_tds" type="checkbox" id="tds" name="tds">
+        </label>
+        
+    <label for="credit">Credit Limit:</label>
+    <input formControlName= "credit_limit" class="form-control" type="number" id="remarks" name="remarks">
+
+    <label for="remarks">Remarks:</label>
+    <input formControlName= "remark" class="form-control" type="textarea" id="remarks" name="remarks">
+<div class="btn-group">
+    <button class="btn" type="submit" (click)="onPrev()">Previous</button>
+    <button class="btn" type="submit">Submit</button>
+</div>
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+</div>
+</form>

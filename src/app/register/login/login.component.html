@@ -1,0 +1,79 @@
+<mat-progress-spinner class="spinner" mode="indeterminate" *ngIf="loadSpinner"></mat-progress-spinner>
+<div *ngIf="!loadSpinner" class="tab-content login-tab">
+    <div
+      class="tab-pane fade show active"
+      id="pills-login"
+      role="tabpanel"
+      aria-labelledby="tab-login"
+    >
+      <form
+      [formGroup]="loginForm"
+        class="form"
+        (ngSubmit)="onSubmit()"
+        novalidate
+        autocomplete="off"
+      >
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            formControlName = "username"
+            class="form-control"
+            [class.is-invalid]="getUsername?.invalid && getUsername?.touched"
+          />
+          <div *ngIf="
+          getUsername?.invalid && getUsername?.touched
+        ">
+          <small
+            class="text-danger"
+            *ngIf="getUsername?.errors?.['required']"
+          >
+            username is required
+          </small>
+          <small
+            class="text-danger"
+            *ngIf="getUsername?.errors?.['minlength']"
+          >
+            Please enter an username with minimun 3 characters
+          </small>
+        </div>
+        </div>
+  
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="loginPassword">Password</label>
+          <input
+            type="password"
+            id="loginPassword"
+            formControlName = "password"
+            class="form-control"
+            [class.is-invalid]="getPassword?.invalid && getPassword?.touched"
+          />
+          <div *ngIf="getPassword?.invalid && getPassword?.touched">            
+          <small
+          class="text-danger"
+          *ngIf="getPassword?.errors?.['required']"
+        >
+          Password is required
+        </small>
+        <small
+          class="text-danger"
+          *ngIf="getPassword?.errors?.['invalidPassword']"
+        >
+        Please enter a password with atleast 8 characters
+        </small>
+        </div>
+        </div>
+  
+        <!-- Submit button -->
+        <div class="signin">
+          <button type="submit" class="btn btn-primary btn-block mb-4">
+            Sign in
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

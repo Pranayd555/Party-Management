@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Party Information Form</h2>
+
+    <nav class="navbar" data-bs-theme="dark">
+        <div class="container-fluid">
+          <span appBetterHighlighter  class="nav-tab" [class.active]="tabActive.isPersonal" (click)="tabChange('personal')">Personal details</span>
+          <span appBetterHighlighter class="nav-tab" [class.active]="tabActive.isOrg" (click)="tabChange('org')">Organisation details</span>
+          <span appBetterHighlighter class="nav-tab" [class.active]="tabActive.isAdd" (click)="tabChange('add')">Additional details</span>
+        </div>
+      </nav>
+
+      <div id = "personalDetails">
+        <app-personal-details *ngIf="tabActive.isPersonal" [partyData]="partyData" [(tabActive)]="tabActive" (personalDetailsChange)="onPartyChange($event)"></app-personal-details>
+      </div>
+      <div id = "orgDetails">
+        <app-org-details *ngIf="tabActive.isOrg" [partyData]="partyData" [(tabActive)]="tabActive" (orgDetailsChange)="onPartyChange($event)"></app-org-details>
+      </div>
+        <div id = "addDetails">
+        <app-add-details *ngIf="tabActive.isAdd" [(tabActive)]="tabActive" [partyData]="partyData" (addDetailsChange)="onPartyChange($event)"></app-add-details>
+        </div>
+
+</div>

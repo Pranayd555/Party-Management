@@ -1,0 +1,24 @@
+.header {
+    width:100%;
+    background: yellowgreen;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    position: fixed;
+}
+
+
+.nav-icon {
+    width: 40px; height: 40px
+  }
+
+.search {
+    max-width: 30%;
+    margin-right: 0px;
+}
+
+.login {
+    margin-left: auto; 
+margin-right: 5px;
+}

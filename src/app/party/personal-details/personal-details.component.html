@@ -1,0 +1,101 @@
+
+<form *ngIf="personalDetails"
+        autocomplete="off"
+        [formGroup]="personalDetails"
+        class="form"
+        (ngSubmit)="onSubmit()"
+        autocomplete="off">
+        <div #firstEle></div>
+<div id="section1" class="form-section">
+    <label for="name">Name:</label>
+    <input formControlName= "name" class="form-control" type="text" id="name" name="name"
+    [class.is-invalid]="getName.invalid && getName.touched">
+    <div *ngIf="getName.invalid && getName.touched">
+      <small
+        class="text-danger"
+      >
+      Please enter a name
+      </small>
+      </div>
+    <label for="email">Email:</label>
+    <input formControlName= "email" class="form-control" type="email" id="email" name="email"
+    [class.is-invalid]="getEmail.invalid && getEmail.touched">
+    <div *ngIf="getEmail.invalid && getEmail.touched">
+      <small
+        class="text-danger"
+      >
+      Please enter a vaild email
+      </small>
+      </div>
+    <label for="mobile">Mobile Number:</label>
+    <input formControlName= "mobile_no" class="form-control" type="tel" id="mobile" name="mobile"
+    [class.is-invalid]="getMobileNo.invalid && getMobileNo.touched">
+    <div *ngIf="getMobileNo?.invalid && getMobileNo?.touched">
+      <small *ngIf="getMobileNo?.errors?.['maxlength']"
+        class="text-danger"
+      >
+      Please enter a mobile number within 20 characters
+      </small>
+      <small *ngIf="getMobileNo?.errors?.['pattern']"
+        class="text-danger"
+      >
+      Please enter a valid mobile number
+      </small>
+      </div>
+    <label for="tel">Telephone Number:</label>
+    <input formControlName= "telephone_no" class="form-control" type="tel" id="tel" name="telephoneNumber"
+    [class.is-invalid]="getTeleNo.invalid  && getTeleNo.touched">
+    <div *ngIf="getTeleNo?.invalid && getTeleNo?.touched">
+      <small *ngIf="getTeleNo?.errors?.['maxlength']"
+        class="text-danger"
+      >
+      Please enter a telephone number within 20 characters
+      </small>
+      <small *ngIf="getTeleNo?.errors?.['pattern']"
+        class="text-danger"
+      >
+      Please enter a valid telephone number
+      </small>
+      </div>
+    <label for="pan">Pancard Number:</label>
+    <input formControlName= "pan_no" class="form-control" type="text" id="pan" name="panNumber"
+    [class.is-invalid]="getPancard.invalid && getPancard.touched">
+    <div *ngIf="getPancard?.invalid && getPancard?.touched">
+      <small
+        class="text-danger"
+      >
+      Please enter a pancard within 15 characters
+      </small>
+      </div>
+    <label for="dob">Date Of Birth:</label>
+    <input formControlName= "date_of_birth" class="form-control" type="date" id="dob" name="dateOfBirth">
+    <label for="aob">Anniversary Date:</label>
+    <input formControlName= "anniversary_date" class="form-control" type="date" id="aob" name="anniDate">
+
+    <ng-container formArrayName = "address" *ngFor="let add of addressControls.controls; let i=index">
+        <h4>Address:</h4>
+    <div id="address" class="form-group" [formGroupName]="i">
+        <label for="address1">Adress line 1:</label>
+        <input formControlName= "address_line_1" class="form-control" type="text" id="address1" name="address1">
+        <label for="address2">Address line 2:</label>
+        <input formControlName= "address_line_2" class="form-control" type="text" id="address2" name="address2">
+        <label for="country">Country:</label>
+        <input formControlName= "country" class="form-control" type="text" id="country" name="country">
+        <label for="state">State:</label>
+        <input formControlName= "state" class="form-control" type="text" id="state" name="state">
+        <label for="city">City:</label>
+        <input formControlName= "city" class="form-control" type="text" id="city" name="city">
+        <label for="pincode">Pincode:</label>
+        <input formControlName= "pincode" class="form-control" type="text" id="pincode" name="pincode">
+    </div>
+</ng-container>
+
+<label for="image">Image:</label>
+<input class="form-control" type="file" id="image" name="image" (change)="onFileSelected($event)">
+    <div class="btn-group">
+        <button class="btn btn-primary btn-block mb-4" type="submit">Next</button>
+    </div>
+    
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+</div>
+</form>

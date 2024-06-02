@@ -1,0 +1,68 @@
+
+<form *ngIf="orgDetails"
+        autocomplete="off"
+        [formGroup]="orgDetails"
+        class="form"
+        (ngSubmit)="onSubmit()"
+        novalidate
+        autocomplete="off">
+        <div #firstEle></div>
+<div id="section1" class="form-section">
+    <label for="orgName">Company Name:</label>
+    <input formControlName= "company_name" class="form-control" type="text" id="orgName" name="orgName"
+    [class.is-invalid]="getCompanyName.invalid && getCompanyName.touched">
+    <div *ngIf="getCompanyName?.invalid && getCompanyName?.touched">
+        <small
+          class="text-danger"
+        >
+        Company Name is required
+        </small>
+        </div>
+    <label for="wpNum">Whatsapp Number:</label>
+    <input formControlName= "whatsapp_no" class="form-control" type="text" id="wpNum" name="wpNum"
+    [class.is-invalid]="getWpNo.invalid && getWpNo.touched">
+    <div *ngIf="getWpNo?.invalid && getWpNo?.touched">
+        <small *ngIf="getWpNo?.errors?.['maxlength']"
+          class="text-danger"
+        >
+        Please enter a whatsapp number within 20 characters
+        </small>
+        <small *ngIf="getWpNo?.errors?.['pattern']"
+          class="text-danger"
+        >
+        Please enter a valid whatsapp number
+        </small>
+        </div>
+    <label for="gstin">GSTIN:</label>
+    <input formControlName= "gstin" class="form-control" type="text" id="gstin" name="gstin"
+    [class.is-invalid]="getGstin.invalid && getGstin.touched">
+    <div *ngIf="getGstin?.invalid && getGstin?.touched">
+        <small
+          class="text-danger"
+        >
+        GSTIN is required
+        </small>
+        </div>
+    
+    <ng-container formArrayName = "bank_id" *ngFor="let add of bankControls.controls; let i=index">
+        <h4>Bank Details:</h4>
+    <div id="bank" class="form-group" [formGroupName]="i">
+        <label for="bankName">Bank Name:</label>
+        <input formControlName= "bank_name" class="form-control" type="text" id="bankName" name="bankName">
+        <label for="ifsc">IFSC Code:</label>
+        <input formControlName= "bank_ifsc_code" class="form-control" type="text" id="ifsc" name="ifsc">
+        <label for="branch">Branch Name:</label>
+        <input formControlName= "branch_name" class="form-control" type="text" id="branch" name="branch">
+        <label for="accNum">Account Number:</label>
+        <input formControlName= "account_no" class="form-control" type="text" id="accNum" name="accNum">
+        <label for="accName">Account Holder Name:</label>
+        <input formControlName= "account_holder_name" class="form-control" type="text" id="accName" name="accName">
+    </div>
+</ng-container>
+    <div class="btn-group">
+        <button class="btn btn-primary" type="submit" (click)="onPrev()">Previous</button>
+        <button class="btn btn-primary" type="submit" (click)="onNext()">Next</button>
+    </div>
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+</div>
+</form>

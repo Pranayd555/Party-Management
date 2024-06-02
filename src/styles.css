@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    font-weight: 400;
+    color: #fff;
+    overflow-x: hidden;
+    background-color: #071f30;
+    background-image: url('./assets/images/home.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 110% 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+html, body { height: 100%; }

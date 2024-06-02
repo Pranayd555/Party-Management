@@ -1,0 +1,122 @@
+.container {
+    padding: 5px;
+    margin-top: 20px;
+}
+h2,h3 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    /* width: 80%; */
+    margin-bottom: 5px;
+    min-width: 400px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+input[type="textarea"],
+input[type="file"] {
+    /* width: calc(50% - 10px); */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 60%;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+button[type="submit"]:hover {
+    background-color: #066d0b;
+}
+
+.form-section {
+    display: inline-grid;
+}
+
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 600px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="number"],
+    input[type="textarea"],
+    input[type="file"] {
+        /* width: calc(100% - 10px); */
+        padding-left: 10px;
+        padding-right: 10px;
+        
+    }
+
+    label {
+        min-width: 80%;
+        padding-left: 10px;
+        margin-left: 10px;
+    }
+
+    input[type="submit"] {
+        
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+.nav-tab {
+    float: left;
+    min-width: calc(100% / 4);
+    text-align: center;
+    color: rgba(0, 0, 0, 0.80);
+    background-color: aliceblue;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.nav-tab.active {
+    color: #0d6efd;
+}

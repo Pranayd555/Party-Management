@@ -1,0 +1,27 @@
+
+<header class="header">
+  <span (mouseenter)="showNav()">
+    <img class="nav-icon" src= "../../../assets/icons/align-justify.svg" alt="nav"/></span>
+<nav class="navbar" data-bs-theme="dark">
+    <div class="container-fluid">
+
+
+      <button *ngIf="!token" type="button" class="login btn btn-primary" (click)="navigateTo('register/user-login')">
+        <img src= "../../../assets/icons/person-lines-fill.svg" alt="user"/>
+        Log In
+      </button>
+      <button *ngIf="token" type="button" class="login btn btn-primary" (click)="logOutUser()">
+        <img src= "../../../assets/icons/person-lines-fill.svg" alt="user"/>
+        Log Out
+      </button>
+    </div>
+  </nav>
+</header>
+<div (mouseleave)="hideNav()">
+<app-sidenavbar *ngIf="isOpen"></app-sidenavbar>
+</div>
+  <!-- Content Area -->
+  <div class="content">
+    <!-- Router Outlet -->
+    <router-outlet></router-outlet>
+  </div>

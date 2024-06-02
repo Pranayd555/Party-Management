@@ -1,0 +1,10 @@
+<div #sideNav (mouseenter)="showNav()" (mouseleave)="hideNav()" class="sidebar" [ngClass]="isOpen? 'open slide': 'close slide'">
+    <h4 class="colorful-text">Party Management</h4>
+    <u></u>
+    <ul class="list-unstyled">
+      <li class="nav-li"><a routerLink="parties-list">Party Lists</a></li>
+      <li class="nav-li"><a routerLink="parties-list/add-party">Add Party</a></li>
+    </ul>
+  </div>
+
+  
