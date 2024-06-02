@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build -- --configuration production --base-href "/Party-management/"
+        run: npm run build -- --configuration production --base-href "/party-management/"
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
