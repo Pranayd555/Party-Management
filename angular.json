@@ -35,6 +35,8 @@
           },
           "configurations": {
             "production": {
+              "optimization": true,
+              "outputPath": "dist/party-management",
               "budgets": [
                 {
                   "type": "initial",
@@ -55,7 +57,13 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"

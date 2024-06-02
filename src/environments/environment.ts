@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    apiUrl: 'https://ap.greatfuturetechno.com'
+    apiUrl: 'https://ap.greatfuturetechno.com/'
 }
