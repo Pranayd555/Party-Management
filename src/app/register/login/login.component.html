@@ -60,7 +60,7 @@
         </small>
         <small
           class="text-danger"
-          *ngIf="getPassword?.errors?.['invalidPassword']"
+          *ngIf="getPassword?.errors?.['minLength']"
         >
         Please enter a password with atleast 8 characters
         </small>

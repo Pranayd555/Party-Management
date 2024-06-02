@@ -32,7 +32,7 @@ export class LoginServiceService {
           )
         },
         error: (errorResponse) => {
-          this.toastrService.error(errorResponse.error)
+          this.toastrService.error(errorResponse?.error?.msg)
         }
       })
     );
