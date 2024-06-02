@@ -1,0 +1,144 @@
+[
+    {
+        "id": 2,
+        "bank_id": [
+            {
+                "id": 52,
+                "bank_ifsc_code": "HDFC0001234",
+                "bank_name": "HDFC Bank",
+                "branch_name": "MG Road Branch",
+                "account_no": "123456789012",
+                "account_holder_name": "John Doe",
+                "is_active": true
+            },
+            {
+                "id": 53,
+                "bank_ifsc_code": "ICIC0005678",
+                "bank_name": "ICICI Bank",
+                "branch_name": "Church Street Branch",
+                "account_no": "987654321098",
+                "account_holder_name": "Jane Smith",
+                "is_active": true
+            }
+        ],
+        "address": [
+            {
+                "id": 34,
+                "address_line_1": "Bharvi Tower",
+                "address_line_2": "Amraiwadi",
+                "country": "india",
+                "state": "Gujrat",
+                "city": "Ahmedabad",
+                "pincode": 380026,
+                "is_active": true
+            }
+        ],
+        "userid": {
+            "id": 2,
+            "username": "1234567890",
+            "phone_number": null,
+            "user_permissions": [],
+            "is_active": true
+        },
+        "login_access": true,
+        "name": "santosh shinde",
+        "company_name": "maxxton indian",
+        "mobile_no": "55651715687",
+        "telephone_no": "12345278124",
+        "whatsapp_no": "1234567890",
+        "email": "abc@gmai.com",
+        "remark": "Test remark",
+        "date_of_birth": "2024-12-12",
+        "anniversary_date": "2024-12-12",
+        "gstin": "55151551515515",
+        "pan_no": "ABCD1234",
+        "apply_tds": true,
+        "credit_limit": 700,
+        "is_active": true,
+        "image": "/media/twitter_wj0e7BL.png"
+    },
+    {
+        "id": 10,
+        "bank_id": [],
+        "address": [],
+        "userid": {
+            "id": 13,
+            "username": "9938830249",
+            "phone_number": null,
+            "user_permissions": [],
+            "is_active": true
+        },
+        "login_access": true,
+        "name": "Ritik dussa",
+        "company_name": "Google",
+        "mobile_no": "9938830249",
+        "telephone_no": "9938830249",
+        "whatsapp_no": "9938830249",
+        "email": "ritik111131@gmail.com",
+        "remark": "Good",
+        "date_of_birth": "2024-05-29",
+        "anniversary_date": "2024-05-30",
+        "gstin": "1213",
+        "pan_no": "9856876545678",
+        "apply_tds": false,
+        "credit_limit": 21,
+        "is_active": true,
+        "image": null
+    },
+    {
+        "id": 11,
+        "bank_id": [],
+        "address": [],
+        "userid": {
+            "id": 14,
+            "username": "9938830241",
+            "phone_number": null,
+            "user_permissions": [],
+            "is_active": true
+        },
+        "login_access": true,
+        "name": "Gurdeep Singh",
+        "company_name": "Ritik",
+        "mobile_no": "9938830241",
+        "telephone_no": "9938830241",
+        "whatsapp_no": "9938830241",
+        "email": "shivamksinha11@gmail.com",
+        "remark": "Good",
+        "date_of_birth": "2024-05-31",
+        "anniversary_date": "2024-05-20",
+        "gstin": "657",
+        "pan_no": "56765445678",
+        "apply_tds": true,
+        "credit_limit": 23,
+        "is_active": true,
+        "image": null
+    },
+    {
+        "id": 35,
+        "bank_id": [],
+        "address": [],
+        "userid": {
+            "id": 38,
+            "username": "08393939939",
+            "phone_number": null,
+            "user_permissions": [],
+            "is_active": true
+        },
+        "login_access": true,
+        "name": "Tester",
+        "company_name": "maxxton India",
+        "mobile_no": "08393939939",
+        "telephone_no": "08393939939",
+        "whatsapp_no": "1234567890",
+        "email": "yog@gmail.com",
+        "remark": "Test remark",
+        "date_of_birth": "2024-05-01",
+        "anniversary_date": "2024-05-09",
+        "gstin": "877979888878",
+        "pan_no": "ABCD1234",
+        "apply_tds": true,
+        "credit_limit": 800,
+        "is_active": true,
+        "image": null
+    }
+]
