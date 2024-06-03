@@ -48,7 +48,7 @@ export class AddDetailsComponent {
             // after successful updation of the party rooute back to parties list
             const t = setTimeout(()=> {
               this.loading = false;
-              this.router.navigate(['parties-list']);
+              // this.router.navigate(['parties-list']);
             }, 2000);
           }
         );
