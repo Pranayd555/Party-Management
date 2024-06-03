@@ -39,7 +39,6 @@ export class EditPartyComponent implements OnInit {
 
     this.route.params.subscribe(data=> {
       this.currentRoute = data;
-      console.log(this.currentRoute)
     })
   }
 

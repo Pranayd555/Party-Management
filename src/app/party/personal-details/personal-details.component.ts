@@ -84,7 +84,6 @@ export class PersonalDetailsComponent implements OnInit{
     }    
 
     onSubmit() {
-      console.log(this.personalDetails);
       if (this.personalDetails.valid) {
         this.loading = true;
         this.personalDetailsChange.emit({tabName: 'personal', val: this.personalDetails.value});

@@ -34,12 +34,7 @@ export class PartyComponent implements OnInit{
             storeData = JSON.parse(JSON.stringify(data[key]))
           } 
         }
-        // let exData = []
-        // for(let key in storeData) {
-        //   key !== 'type' ? exData.push(storeData[key]) : ''
-        // }
         this.dataSource = storeData;
-        console.log(Array.isArray(this.dataSource), this.dataSource)
         this.isDelete = NaN;
       })
   }

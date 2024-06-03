@@ -28,11 +28,9 @@ export class LoginComponent {
   onSubmit() {
     if(this.loginForm.valid){
     this.loadSpinner = true;
-    console.log('form data', this.loginForm);
     const userForm: IUserLogin = this.loginForm?.value;
     this.loginService.loginUser(userForm).subscribe(
        {next:   data => {
-            console.log('logged in user', data)
             this.loadSpinner = false;
             this.router.navigate(['parties-list']);  
           },
