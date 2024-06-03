@@ -1,7 +1,8 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Observable, Subscription } from 'rxjs';
 import { Party } from 'src/app/shared/models/party';
 import { PartyState } from 'src/app/store/reducers/party.reducer';
 
@@ -10,7 +11,7 @@ import { PartyState } from 'src/app/store/reducers/party.reducer';
   templateUrl: './add-details.component.html',
   styleUrls: ['./add-details.component.css']
 })
-export class AddDetailsComponent {
+export class AddDetailsComponent implements OnDestroy {
   @Input() tabActive = {isPersonal: true, isOrg: false, isAdd: false};
   @Output() tabActiveChange = new EventEmitter();
   @Output() addDetailsChange = new EventEmitter();
@@ -19,7 +20,7 @@ export class AddDetailsComponent {
   }
 
   loading: boolean = false;
-  storeParties$ = this.store.select('parties');
+  storeParties$ = new Subscription();
 
   constructor(private fb: FormBuilder, private router: Router, private store: Store<PartyState>) {}
   
@@ -43,12 +44,12 @@ export class AddDetailsComponent {
   onSubmit() {
     this.loading = true;
     this.addDetailsChange.emit({tabName: 'add', val: this.addDetails.value})
-    this.storeParties$.subscribe(
+    this.storeParties$ = this.store.select('parties').subscribe(
           data=> {
             // after successful updation of the party rooute back to parties list
             const t = setTimeout(()=> {
               this.loading = false;
-              // this.router.navigate(['parties-list']);
+              this.router.navigate(['parties-list']);
             }, 2000);
           }
         );
@@ -64,5 +65,9 @@ export class AddDetailsComponent {
       this.loading = false;
       this.tabActiveChange.emit(this.tabActive)
     }, 1000)
+  }
+
+  ngOnDestroy(): void {
+    this.storeParties$.unsubscribe();
   }
 }
