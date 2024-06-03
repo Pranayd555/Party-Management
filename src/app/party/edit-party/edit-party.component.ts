@@ -68,14 +68,7 @@ export class EditPartyComponent implements OnInit {
       if(event['tabName'] == 'add') { // from additional details tab updating all party data through put
         const partyRequestData = this.getPartyReqData(this.partyData);
         this.store.dispatch(updateAllParty({partyForm: partyRequestData, id: this.partyData.id!, party: this.partyData}))
-        this.storeParties$.subscribe(
-          data=> {
-            // after successful updation of the party rooute back to parties list
-            const t = setTimeout(()=> {
-              this.router.navigate(['parties-list']);
-            }, 1000);
-          }
-        );
+        
       } else { // partial update of party data 
         const partyRequestData = this.getPartyReqData(this.partyData, event['tabName']);
         this.store.dispatch(updateParty({partyForm: partyRequestData, id: this.partyData.id!, party: this.partyData}))
@@ -84,16 +77,6 @@ export class EditPartyComponent implements OnInit {
       if(event['tabName']=='add') {
         const partyRequestData = this.getPartyReqData(this.partyData);
         this.store.dispatch(addParty({partyForm: partyRequestData, party: this.partyData}))
-        this.storeParties$.subscribe(data=> {
-            // after successful creation of party reset the form
-            const t = setTimeout(()=> {
-              clearTimeout(t);
-              this.tabActive.isPersonal = true;
-              this.tabActive.isAdd = false;
-              this.tabActive.isOrg = false;
-              this.partyData = new Party();
-            }, 1000)
-        });
       }
     }
     

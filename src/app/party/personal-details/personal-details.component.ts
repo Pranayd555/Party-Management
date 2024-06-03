@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { Party } from 'src/app/shared/models/party';
 
@@ -7,7 +7,7 @@ import { Party } from 'src/app/shared/models/party';
   templateUrl: './personal-details.component.html',
   styleUrls: ['./personal-details.component.css']
 })
-export class PersonalDetailsComponent {
+export class PersonalDetailsComponent implements OnInit{
 
 
   constructor(private fb: FormBuilder) {}
@@ -33,6 +33,10 @@ export class PersonalDetailsComponent {
     image:[new File([],'')],
     address : this.fb.array([this.addressForm()])
   });
+
+  ngOnInit(): void {
+    this.movetoTop();
+  }
 
   loadApiData(partyData: Party) {
       this.personalDetails.patchValue( {

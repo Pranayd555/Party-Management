@@ -1,6 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Party } from 'src/app/shared/models/party';
+import { PartyState } from 'src/app/store/reducers/party.reducer';
 
 @Component({
   selector: 'app-add-details',
@@ -16,8 +19,9 @@ export class AddDetailsComponent {
   }
 
   loading: boolean = false;
+  storeParties$ = this.store.select('parties');
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router, private store: Store<PartyState>) {}
   
   addDetails = this.fb.group({
     login_access: [true],
@@ -25,6 +29,7 @@ export class AddDetailsComponent {
     credit_limit: [0],
     apply_tds: [false]
   })
+  
   
   loadApiData(partyData: Party) {
     this.addDetails.patchValue( {
@@ -38,9 +43,20 @@ export class AddDetailsComponent {
   onSubmit() {
     this.loading = true;
     this.addDetailsChange.emit({tabName: 'add', val: this.addDetails.value})
+    this.storeParties$.subscribe(
+          data=> {
+            // after successful updation of the party rooute back to parties list
+            const t = setTimeout(()=> {
+              this.loading = false;
+              this.router.navigate(['parties-list']);
+            }, 2000);
+          }
+        );
   }
   
   onPrev() {
+    this.loading = true;
+    this.addDetailsChange.emit({tabName: 'org', val: this.addDetails.value})
     const t = setTimeout(()=>{
       clearTimeout(t);
       this.tabActive.isOrg = true;

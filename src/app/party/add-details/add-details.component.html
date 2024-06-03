@@ -21,7 +21,7 @@
     <label for="remarks">Remarks:</label>
     <input formControlName= "remark" class="form-control" type="textarea" id="remarks" name="remarks">
 <div class="btn-group">
-    <button class="btn" type="submit" (click)="onPrev()">Previous</button>
+    <button class="btn" type="button" (click)="onPrev()">Previous</button>
     <button class="btn" type="submit">Submit</button>
 </div>
 <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
